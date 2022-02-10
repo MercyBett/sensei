@@ -1,7 +1,7 @@
 import { prisma } from '../../../lib/prisma'
 
 export default async function handler(req, res) {
-  const { id } = req.params
+  const { id } = req.query
   if (req.method === 'DELETE') {
     try {
       const sensei = await prisma.sensei.delete({

@@ -1,6 +1,17 @@
 import React from 'react'
 
 function Card({ senseis }) {
+  async function deleteSensei(id) {
+    try {
+      fetch(`http://localhost:3000/api/sensei/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
       <ul>
@@ -22,7 +33,7 @@ function Card({ senseis }) {
                 Update
               </button>
               <button
-                onClick={() => deleteNote(sensei.id)}
+                onClick={() => deleteSensei(sensei.id)}
                 className="rounded bg-red-500 px-3 text-white"
               >
                 Delete
