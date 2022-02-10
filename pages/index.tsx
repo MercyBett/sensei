@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import { useState } from 'react'
+import { prisma } from '../lib/prisma'
+import { GetServerSideProps } from 'next'
 
-export default function Home() {
+export default function Home({senseis}) {
   const[form,setForm]=useState({topic:'',sensei:''})
 
   return (
@@ -46,4 +48,13 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+  const senseis = await prisma.sensei.findMany({})
+
+  return {
+    props: {
+      senseis
+    }
+  }
 }
