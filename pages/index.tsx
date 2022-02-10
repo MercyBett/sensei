@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import { prisma } from '../lib/prisma'
 import { GetServerSideProps } from 'next'
+import Card from '../components/Card'
 
 export default function Home({senseis}) {
   const[form,setForm]=useState({topic:'',sensei:''})
@@ -32,7 +33,9 @@ export default function Home({senseis}) {
           className="border-2 rounded border-gray-600 p-1"
         />
         <button type="submit" className="bg-purple-500 text-white rounded p-1">Create</button>
-      </form>
+        </form>
+        <br />
+        <Card />
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
