@@ -21,13 +21,13 @@ export default function Home({senseis}) {
 
       }} className='w-auto min-w-[25%] max-w-min mx-auto space-y-6 flex flex-col items-stretch'>
         <input type="text"
-          placeholder="Topic"
+          placeholder="Topic e.g Next.js"
           value={form.topic}
           onChange={e => setForm({...form, topic: e.target.value})}
           className="border-2 rounded border-gray-600 p-1"
         />
         <textarea
-          placeholder="Sensei"
+          placeholder="Sensei e.g Lee Robinson"
           value={form.sensei}
           onChange={e => setForm({...form, sensei: e.target.value})}
           className="border-2 rounded border-gray-600 p-1"
