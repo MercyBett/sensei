@@ -10,7 +10,7 @@ export default function Home() {
         <title>Sensei | Curate your favourite guides</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <h1 className="text-center text-purple-500 font-semibold text-4xl mt-8">Curate Your Favourite Guides</h1>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
 
         <form onSubmit={e => {
