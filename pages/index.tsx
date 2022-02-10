@@ -35,7 +35,7 @@ export default function Home({senseis}) {
         <button type="submit" className="bg-purple-500 text-white rounded p-1">Create</button>
         </form>
         <br />
-        <Card />
+        <Card senseis={senseis}/>
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
