@@ -13,7 +13,7 @@ export default function Home({senseis}) {
         <title>Sensei | Curate your favourite guides</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-center text-purple-500 font-semibold text-4xl mt-8">Curate Your Favourite Guides</h1>
+      <h1 className="text-center text-purple-500 font-semibold text-4xl my-8">Curate Your Favourite Guides</h1>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
 
         <form onSubmit={e => {
@@ -38,7 +38,7 @@ export default function Home({senseis}) {
         <Card senseis={senseis}/>
       </main>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
+      <footer className="flex h-24 w-full items-center justify-center border-t mt-4">
         <a
           className="flex items-center justify-center"
           href="#"
