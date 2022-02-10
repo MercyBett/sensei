@@ -7,6 +7,18 @@ import Card from '../components/Card'
 export default function Home({senseis}) {
   const[form,setForm]=useState({topic:'',sensei:''})
 
+  async function handleSubmit(data) {
+    try {
+      await fetch('api/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -17,7 +29,8 @@ export default function Home({senseis}) {
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
 
         <form onSubmit={e => {
-        e.preventDefault()
+          e.preventDefault()
+          handleSubmit(form)
 
       }} className='w-auto min-w-[25%] max-w-min mx-auto space-y-6 flex flex-col items-stretch'>
         <input type="text"
