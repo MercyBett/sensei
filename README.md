@@ -1,1 +1,1 @@
-# Next.js + Tailwind + Prisma + Sensei
+# Next.js + Tailwind + Prisma + NextAuth
