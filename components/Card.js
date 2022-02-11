@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import EditSensei from './EditSensei'
 
 function Card({ senseis }) {
+  const [form, setForm] = useState(null)
+  const [editModal, setEditModal] = useState(false)
+
   async function deleteSensei(id) {
     try {
       fetch(`http://localhost:3000/api/sensei/${id}`, {
@@ -11,7 +15,14 @@ function Card({ senseis }) {
       console.log(error)
     }
   }
-
+  async function editSensei(sensei) {
+    try {
+      setForm(sensei)
+      setEditModal((pV) => !pV)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
       <ul>
@@ -21,13 +32,7 @@ function Card({ senseis }) {
               <h3 className="text-2xl font-bold">{sensei.topic}</h3>
               <p className="mt-4 text-xl">{sensei.sensei}</p>
               <button
-                onClick={() =>
-                  setForm({
-                    title: sensei.title,
-                    content: sensei.content,
-                    id: sensei.id,
-                  })
-                }
+                onClick={() => editSensei(sensei)}
                 className="mr-3 rounded bg-blue-500 px-3 text-white"
               >
                 Update
@@ -42,6 +47,7 @@ function Card({ senseis }) {
           </li>
         ))}
       </ul>
+      {editModal ? <EditSensei /> : null}
     </div>
   )
 }
