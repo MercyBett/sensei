@@ -1,14 +1,17 @@
 import React from 'react'
 
 function EditSensei({ form, closeModal }) {
-  const [data, setData] = React.useState()
+  const [data, setData] = React.useState({
+    topic: form.topic,
+    sensei: form.sensei,
+  })
   const id = form.id
 
   async function handleSubmit(data) {
     await fetch(`api/sensei/${id}`, {
       headers: { 'Content-Type': 'application/json' },
       method: 'PUT',
-      body: JSON.stringify(form),
+      body: JSON.stringify(data),
     })
   }
 
@@ -24,13 +27,13 @@ function EditSensei({ form, closeModal }) {
         <input
           type="text"
           placeholder="Topic e.g Next.js"
-          value={form.topic}
+          value={data.topic}
           onChange={(e) => setData({ ...data, topic: e.target.value })}
           className="rounded border-2 border-gray-600 p-1"
         />
         <textarea
           placeholder="Sensei e.g Lee Robinson"
-          value={form.sensei}
+          value={data.sensei}
           onChange={(e) => setData({ ...data, sensei: e.target.value })}
           className="rounded border-2 border-gray-600 p-1"
         />
