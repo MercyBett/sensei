@@ -47,7 +47,9 @@ function Card({ senseis }) {
           </li>
         ))}
       </ul>
-      {editModal ? <EditSensei /> : null}
+      {editModal ? (
+        <EditSensei form={form} closeModal={() => setEditModal(false)} />
+      ) : null}
     </div>
   )
 }

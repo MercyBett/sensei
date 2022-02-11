@@ -1,6 +1,6 @@
 import React from 'react'
 
-function EditSensei() {
+function EditSensei({ form }) {
   return (
     <div>
       <form
