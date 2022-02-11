@@ -1,15 +1,23 @@
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import EditSensei from './EditSensei'
 
 function Card({ senseis }) {
   const [form, setForm] = useState(null)
   const [editModal, setEditModal] = useState(false)
+  const router = useRouter()
+
+  function refresh() {
+    router.replace(router.asPath)
+  }
 
   async function deleteSensei(id) {
     try {
       fetch(`http://localhost:3000/api/sensei/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
+      }).then(() => {
+        refresh()
       })
     } catch (error) {
       console.log(error)
