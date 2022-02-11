@@ -14,4 +14,16 @@ export default async function handler(req, res) {
       console.log(error)
     }
   }
+  if (req.method === 'PUT') {
+    const { topic, sensei } = req.body
+    try {
+      const ssensei = await prisma.sensei.update({
+        where: { id: Number(id) },
+        data: { topic, sensei },
+      })
+      res.status(200).json(ssensei)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
