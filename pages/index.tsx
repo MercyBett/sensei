@@ -20,6 +20,7 @@ export default function Home({senseis}) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       }).then(() => {
+        setForm({topic: '',sensei:''})
         refresh()
       })
     } catch (error) {
