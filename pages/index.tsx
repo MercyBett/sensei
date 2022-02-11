@@ -79,7 +79,7 @@ export default function Home({senseis}) {
   return (
     <div className="flex flex-col items-center justify-center font-semibold mt-20">
       Please sign in to continue ...<br />
-      <button onClick={() => signIn()}>Sign In</button>
+      <button className="p-2 rounded-lg bg-purple-500 text-white" onClick={() => signIn()}>Sign In</button>
     </div>
   )
 }
