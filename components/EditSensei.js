@@ -12,6 +12,8 @@ function EditSensei({ form, closeModal }) {
       headers: { 'Content-Type': 'application/json' },
       method: 'PUT',
       body: JSON.stringify(data),
+    }).then(() => {
+      closeModal()
     })
   }
 
