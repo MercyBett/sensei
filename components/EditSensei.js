@@ -1,6 +1,6 @@
 import React from 'react'
 
-function EditSensei({ form }) {
+function EditSensei({ form, closeModal }) {
   const [form, setForm] = useState({ topic: form.topic, sensei: form.sensei })
   const id = form.id
 
