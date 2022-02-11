@@ -24,7 +24,7 @@ function EditSensei({ form }) {
           className="rounded border-2 border-gray-600 p-1"
         />
         <button type="submit" className="rounded bg-purple-500 p-1 text-white">
-          Create
+          Update
         </button>
       </form>
     </div>
