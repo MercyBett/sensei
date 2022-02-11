@@ -3,9 +3,15 @@ import { useState } from 'react'
 import { prisma } from '../lib/prisma'
 import { GetServerSideProps } from 'next'
 import Card from '../components/Card'
+import { useRouter } from 'next/router'
 
 export default function Home({senseis}) {
   const[form,setForm]=useState({topic:'',sensei:''})
+  const router = useRouter()
+
+  function refresh() {
+    router.replace(router.asPath)
+  }
 
   async function handleSubmit(data) {
     try {
@@ -13,6 +19,8 @@ export default function Home({senseis}) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
+      }).then(() => {
+        refresh()
       })
     } catch (error) {
       console.log(error)
