@@ -1,6 +1,9 @@
 import React from 'react'
 
 function EditSensei({ form }) {
+  const [form, setForm] = useState({ topic: form.topic, sensei: form.sensei })
+  const id = form.id
+
   return (
     <div>
       <form
